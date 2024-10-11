@@ -1,13 +1,5 @@
 import request from '@/utils/request'
 
-// export function getList(params) {
-//   return request({
-//     url: '/vue-admin-template/table/list',
-//     method: 'get',
-//     params
-//   })
-// }
-
 export function getList() {
   return request({
     url: '/user',
@@ -21,6 +13,23 @@ export function updateItem(id,info){
   return request({
     url: '/user/'+id,
     method: 'put',
+    data:info,
+    baseURL:'http://localhost:8081/'
+  })
+}
+
+export function delItem(id){
+  return request({
+    url:'/user/'+id,
+    method:'delete',
+    baseURL:'http://localhost:8081/'
+  })
+}
+
+export function createItem(info) {
+  return request({
+    url:'/user',
+    method:'post',
     data:info,
     baseURL:'http://localhost:8081/'
   })

@@ -58,34 +58,46 @@ export const constantRoutes = [
   {
     path: '/example',
     component: Layout,
-    redirect: '/example/table',
+    redirect: '/example/list',
     name: 'Example',
-    // meta: { title: '歌手信息', icon: 'el-icon-s-help' },
-    children: [
-      {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: '歌手信息', icon: 'table' }
-      },
-      // {
-      //   path: 'tree',
-      //   name: 'Tree',
-      //   component: () => import('@/views/tree/index'),
-      //   meta: { title: 'Tree', icon: 'tree' }
-      // }
-    ]
+    meta: { title: '用户信息', icon: 'el-icon-s-help' },
+        children:[
+          {
+            path:'upload',
+            name:'Upload',
+            component: () => import('@/views/table/menu1/index'),
+            meta: { title: '新增用户' }
+          },
+          {
+            path: 'list',
+            name: 'List',
+            component: () => import('@/views/table/menu2/index'),
+            meta: { title: '用户列表' }
+          }
+        ]
   },
 
   {
     path: '/form',
     component: Layout,
+    redirect: '/form/list',
+    name: 'Form',
+    meta: {
+      title: '歌手信息',
+      icon: 'form'
+    },
     children: [
       {
-        path: 'index',
+        path: 'upload',
         name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: '用户信息', icon: 'form' }
+        component: () => import('@/views/form/menu1/index'),
+        meta: { title: '新增歌手'}
+      },
+      {
+        path: 'list',
+        name: 'Form',
+        component: () => import('@/views/form/menu2/index'),
+        meta: { title: '歌手信息'}
       }
     ]
   },
@@ -93,7 +105,7 @@ export const constantRoutes = [
   {
     path: '/nested',
     component: Layout,
-    redirect: '/nested/menu1',
+    redirect: '/nested/menu2',
     name: 'Nested',
     meta: {
       title: '歌曲信息',
@@ -104,47 +116,13 @@ export const constantRoutes = [
         path: 'menu1',
         component: () => import('@/views/nested/menu1/index'), // Parent router-view
         name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+        meta: { title: '上传歌曲  ' },
       },
       {
         path: 'menu2',
         component: () => import('@/views/nested/menu2/index'),
         name: 'Menu2',
-        meta: { title: 'menu2' }
+        meta: { title: '歌曲列表' }
       }
     ]
   },
