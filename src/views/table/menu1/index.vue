@@ -39,11 +39,11 @@ export default {
       rules: {
         username: [
           { required: true, message: '请输入用户名', trigger: 'blur' },
-          { min: 4, message: '用户名长度至少为4个字符', trigger: 'blur' }
+          { min: 3, message: '用户名长度至少为3个字符', trigger: 'blur' }
         ],
         password_hash: [
           { required: true, message: '请输入密码', trigger: 'blur' },
-          { min: 6, message: '密码长度至少为6个字符', trigger: 'blur' }
+          { min: 3, message: '密码长度至少为3个字符', trigger: 'blur' }
         ],
         mobile: [
           { required: true, message: '请输入手机号', trigger: 'blur' },

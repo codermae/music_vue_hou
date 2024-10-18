@@ -111,7 +111,7 @@
       </div>
     </el-dialog>
     <el-dialog title="确认删除" :visible.sync="delDialogVisible" width="30%">
-      <span>确定要删除账号吗</span>
+      <span>确定要删除歌曲吗</span>
       <span slot="footer" class="dialog-footer">
         <el-button @click="cancelDel">取消</el-button>
         <el-button type="primary" @click="confirmDel">确定</el-button>
@@ -191,8 +191,8 @@ export default {
     },
     saveChanges(){
       //修改用户信息
-      // console.log(this.formData);
-      updateItem(this.formData.artist_id,this.formData).then(() => {
+      console.log(this.formData);
+      updateItem(this.formData.song_id,this.formData).then(() => {
         this.$message({
           type: 'success',
           message: '修改成功!'

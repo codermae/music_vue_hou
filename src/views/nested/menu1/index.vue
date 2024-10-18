@@ -16,6 +16,9 @@
       <el-form-item label="歌曲时长" prop="duration">
         <el-input v-model="formData.duration" placeholder="04:15:00"></el-input>
       </el-form-item>
+      <el-form-item label="歌曲类型" prop="genre">
+        <el-input v-model="formData.genre"></el-input>
+      </el-form-item>
       <el-form-item label="播放量" prop="views">
         <el-input v-model="formData.views"></el-input>
       </el-form-item>
@@ -53,6 +56,7 @@ export default {
         artist_id:'',
         album_id:'',
         duration:'',
+        genre:'',
         views:'',
         downloads:'',
         file_path:'',
@@ -73,9 +77,12 @@ export default {
           { required: true, message: '请输入专辑ID', trigger: 'blur' },
           {pattern:/^\d+$/,message:'请输入正确的专辑ID',trigger:'blur'}
         ],
+        genre: [
+          { required: true, message: '请输入专辑ID', trigger: 'blur' },
+        ],
         duration: [
           { required: true, message: '请输入歌曲时长', trigger: 'blur' },
-          {pattern:/^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/,message:'请输入正确的时间格式',trigger:'blur'}
+          {pattern:/^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/,message:'请输入正确的时间格式04:15:00',trigger:'blur'}
         ],
         views:[
           {required:true,message:'请输入播放量',trigger:'blur'}
@@ -126,6 +133,7 @@ export default {
         artist_id:'',
         album_id:'',
         duration:'',
+        genre:'',
         views:'',
         downloads:'',
         file_path:'',
